@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaWallet } from 'react-icons/fa';
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '../../lib/sanity';
 
-const Transfer = () => {
+const Transfer = ({
+  selectedToken,
+  setAction,
+  thirdWebTokens,
+  walletAddress,
+}) => {
   const [amount, setAmount] = useState();
   const [recipient, setRecipient] = useState('');
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    console.log(selectedToken);
+    const url = imageUrlBuilder(client).image(selectedToken.logo).url();
+    setImageUrl(url);
+  }, [selectedToken]);
+
   return (
     <Wrapper>
       <Amount>
@@ -38,10 +53,7 @@ const Transfer = () => {
           <FieldName>Pay with</FieldName>
           <CoinSelectList>
             <Icon>
-              <img
-                src='https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F20%252F2021%252F03%252F29%252Fbrad-pitt.jpg&q=85'
-                alt='Brad Pitt'
-              />
+              <img src={imageUrl} />
             </Icon>
             <CoinName>Ethereum</CoinName>
           </CoinSelectList>
