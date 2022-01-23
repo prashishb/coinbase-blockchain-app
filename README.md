@@ -1,3 +1,7 @@
+# Coinbase Blackchain APP
+
+### Web 3.0 App built with Next.js, Sanity.io, thirdweb, Syled Components. Connect your wallet and send tokens on the blockchain.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
