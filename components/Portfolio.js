@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { coins } from '../static/coins';
@@ -6,6 +6,23 @@ import Coin from './Coin';
 import BalanceChart from './BalanceChart';
 
 const Portfolio = () => {
+  const [sanityTokens, setSanityTokens] = useState([]);
+  useEffect(() => {
+    const getCoins = async () => {
+      try {
+        const coins = await fetch(
+          "https://om0nggkr.api.sanity.io/v1/data/query/production?query=*%5B_type%3D%3D'coins'%5D%20%7B%0A%20%20name%2C%0A%20%20usdPrice%2C%0A%20%20contractAddress%2C%0A%20%20symbol%2C%0A%20%20logo%0A%7D"
+        );
+        const tempSanityTokens = await coins.json();
+        console.log(tempSanityTokens);
+        setSanityTokens(tempSanityTokens.result);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    return getCoins();
+  }, []);
   return (
     <Wrapper>
       <Content>
