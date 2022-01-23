@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Transfer from './Transfer';
 import CoinSelector from './CoinSelector';
+import { SpinnerCircularFixed } from 'spinners-react';
 
 const TransferModal = ({ sanityTokens, thirdWebTokens, walletAddress }) => {
   const [action, setAction] = useState('send');
@@ -38,6 +39,36 @@ const TransferModal = ({ sanityTokens, thirdWebTokens, walletAddress }) => {
             thirdWebTokens={thirdWebTokens}
             walletAddress={walletAddress}
           />
+        );
+      case 'transferring':
+        return (
+          <SpinnerWrapper>
+            <SpinnerCircularFixed
+              size={150}
+              thickness={120}
+              speed={100}
+              color='#3773f5'
+              secondaryColor='rgba(0, 0, 0, 0.44)'
+            />
+            Transfer in progress...
+          </SpinnerWrapper>
+        );
+      case 'transferred':
+        return (
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '2rem',
+              fontWeight: '600',
+              color: '#27ad75',
+            }}
+          >
+            Transfer complete
+          </div>
         );
       default:
         return <h2>send</h2>;
@@ -101,4 +132,14 @@ const Option = styled.div`
 const ModalMain = styled.div`
   padding: 1rem;
   flex: 1;
+`;
+
+const SpinnerWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
