@@ -36,8 +36,10 @@ const Portfolio = ({ thirdWebTokens, sanityTokens, walletAddress }) => {
             <Balance>
               <BalanceTitle>Portfolio balance</BalanceTitle>
               <BalanceValue>
-                {'$'}
-                {walletBalance.toLocaleString()}
+                {Intl.NumberFormat('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                }).format(walletBalance)}
               </BalanceValue>
             </Balance>
           </div>
