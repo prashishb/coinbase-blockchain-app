@@ -105,19 +105,25 @@ const Icon = styled.div`
   }
 `;
 
-const NameDetails = styled.div``;
+const NameDetails = styled.div`
+  cursor: pointer;
+`;
 
 const Name = styled.div`
   font-size: 1.1rem;
   margin-bottom: 0.2rem;
+  cursor: pointer;
 `;
 
 const Symbol = styled.div`
   font-size: 0.8rem;
   color: #888f9b;
+  cursor: pointer;
 `;
 
-const Balance = styled.div``;
+const Balance = styled.div`
+  cursor: pointer;
+`;
 
 const IsSelected = styled.div`
   margin-left: 0.5rem;
