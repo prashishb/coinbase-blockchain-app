@@ -203,14 +203,15 @@ const Icon = styled.div`
 `;
 
 const Recipient = styled.input`
-  flex: 1;
+  flex: 1.1;
   border: none;
   background: none;
   outline: none;
   color: #fff;
   font-size: 1.2rem;
   text-wrap: wrap;
-  margin-right: 0.5rem;
+  overflow: hidden;
+  line-height: 0px;
 `;
 
 const CoinSelectList = styled.div`
