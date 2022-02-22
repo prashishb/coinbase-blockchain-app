@@ -1,4 +1,4 @@
-# Coinbase Blackchain APP
+# Coinbase Blockchain APP
 
 ### Web 3.0 App built with Next.js, Sanity.io, thirdweb, Syled Components. Connect your wallet and send tokens on the blockchain.
 
